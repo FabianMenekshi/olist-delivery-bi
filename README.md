@@ -67,8 +67,6 @@ The dashboard opens at [localhost:8501](http://localhost:8501). Keep Docker and 
 | `sql/` | Schema, order model, quality checks and analytical queries |
 | `tests/` | Calculation, publishing and database regression checks |
 | `results/` | Published images, aggregate tables and provenance |
-| `docs/METRICS.md` | Metric definitions, populations and caveats |
-| `docs/WALKTHROUGH.md` | Implementation explanation |
 | `data/raw/` | Local input CSVs, excluded from Git |
 
 Keep `.env`, `.venv`, raw data, caches and ZIP archives out of Git. `.env.example` contains only example local settings. `compose.yaml` binds PostgreSQL to localhost. To stop the database, use `docker compose down`; its named volume preserves the data. `docker compose down -v` deletes that volume.
