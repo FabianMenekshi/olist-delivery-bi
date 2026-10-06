@@ -1,8 +1,9 @@
 # Olist delivery performance
 
-**Where are late deliveries concentrated, and how do delivery outcomes relate to customer reviews?**
+This project is an analysis of the Brazilian Olist e-commerce dataset using PostgreSQL, Python and Streamlit.
 
-An analysis of the Brazilian Olist e-commerce dataset using PostgreSQL, Python and Streamlit. The model keeps one row per order, so orders with several items, payments or reviews do not inflate counts or monetary totals.
+In this project, we aim to answer the following questions:
+*Where are late deliveries concentrated, and how do delivery outcomes relate to customer reviews?*
 
 ![Delivery overview](results/overview.png)
 
@@ -13,13 +14,12 @@ An analysis of the Brazilian Olist e-commerce dataset using PostgreSQL, Python a
 | Late deliveries | 6,534 |
 | Late-delivery rate | 6.8% |
 
-A delivery is late only when its **calendar date** falls after the estimated date. Cancelled orders and orders without usable delivery dates are excluded from the rate's denominator.
+A delivery is late only when its calendar date falls after the estimated date. Cancelled orders and orders without usable delivery dates are excluded from the rate's denominator.
 
 ## What the results show
 
-- March 2018 has a **19.0% late rate** across 7,003 eligible deliveries. Monthly rates describe purchase cohorts, not the month of delivery.
-- **São Paulo (SP)** has the largest late-order count: 1,820, with a 4.5% late rate. **Rio de Janeiro (RJ)** has 1,495 late orders and a 12.1% rate. Compare affected volume and rate together when choosing where to investigate.
-- The next useful analysis is a comparison of these states within the same purchase months and categories. These descriptive results do not establish causes or estimate preventable delays.
+- March 2018 has a 19.0% late rate across 7,003 eligible deliveries. Monthly rates describe purchase cohorts, not the month of delivery.
+- Sao Paulo (SP) has the largest late-order count: 1,820, with a 4.5% late rate. Rio de Janeiro (RJ) has 1,495 late orders and a 12.1% rate. 
 
 [View the state chart and supporting tables](results/README.md). The images are static charts built from the supplied real-data aggregates, not dashboard screenshots. The dashboard also supports category filters and review comparisons.
 
@@ -63,40 +63,7 @@ docker compose up -d --wait
 
 For an intentional refresh of an already loaded database, add `--replace` to the pipeline command. This replaces the project's database rows transactionally; the raw CSV files remain unchanged. An existing loaded database does not need reimporting just to use this revised dashboard.
 
-The dashboard opens at [localhost:8501](http://localhost:8501). Keep Docker and its PowerShell process running. Use the dashboard's **Refresh data** button after a database refresh.
-
-On macOS/Linux, create and activate a virtual environment with `python3 -m venv .venv` and `source .venv/bin/activate`; then use `python` for the commands above and `cp .env.example .env` to create settings.
-
-## Refresh the published results
-
-The repository already includes the saved Olist snapshot. To replace it with results from your currently loaded database:
-
-```powershell
-.\.venv\Scripts\python.exe -m src.results --replace
-```
-
-This reads one consistent, read-only database snapshot and refreshes six assets: two PNG charts, three CSV tables and `provenance.json`. It preserves the manually written `results/README.md`. Review that page and the headline findings above if the source data changes. Without `--replace`, existing generated assets are protected from accidental overwrite.
-
-The provenance file records the input file hashes, SQL hashes, dataset scope and summary counts. The bundled provenance explicitly identifies the supplied saved run; it does not claim a new PostgreSQL execution.
-
-## Tests
-
-```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-```
-
-The PostgreSQL integration test skips unless `TEST_DATABASE_URL` is set. To run it, use an empty dedicated database, with credentials matching your local settings:
-
-```powershell
-docker compose exec db createdb -U olist olist_test
-$env:TEST_DATABASE_URL='postgresql://olist:olist_local_learning@localhost:5433/olist_test'
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-Remove-Item Env:TEST_DATABASE_URL
-```
-
-Skip `createdb` if the empty database already exists. Never point `TEST_DATABASE_URL` at your working Olist database. The integration test refuses existing project schemas and rolls back its fixtures. Test records exist only in a temporary directory; they are independent of the removed demo script.
-
-See [the verification record](docs/VERIFICATION.md) for checks actually executed and remaining runtime checks.
+The dashboard opens at [localhost:8501](http://localhost:8501). Keep Docker and its PowerShell process running. Use the dashboard's "Refresh data" button after a database refresh.
 
 ## Project guide
 
