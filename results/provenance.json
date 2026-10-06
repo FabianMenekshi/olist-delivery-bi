@@ -1,0 +1,73 @@
+{
+  "dataset_label": "olist",
+  "database_loaded_at": "2026-10-05T12:45:15.667936+00:00",
+  "source": "PostgreSQL read-only snapshot",
+  "files": {
+    "olist_orders_dataset.csv": {
+      "rows": 99441,
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    "olist_sellers_dataset.csv": {
+      "rows": 3095,
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    "olist_products_dataset.csv": {
+      "rows": 32951,
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    "olist_customers_dataset.csv": {
+      "rows": 99441,
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    "olist_order_items_dataset.csv": {
+      "rows": 112650,
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    "olist_order_reviews_dataset.csv": {
+      "rows": 99224,
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    "olist_order_payments_dataset.csv": {
+      "rows": 103886,
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    }
+  },
+  "sql_sha256": {
+    "sql\\01_schema.sql": "c5cad2ada32bf0b9847ec4df3412209a6a0778faffbcc6a6bca9204b1cd4b292",
+    "sql\\02_order_mart.sql": "8f15aed6c55f00906c133c83d7ed66ed222fdedee180b83afd1055d6c935f1b0",
+    "sql\\03_quality.sql": "83be8ba9b6c956c2273f4b01093b7ad81733180cf354a94dfaa229a2f4aea96d",
+    "sql\\analysis\\categories.sql": "340d59f6a7d3885b19761d28699ce68b78bcd7a8f698344bcf1d19801127c607",
+    "sql\\analysis\\monthly.sql": "75486214603c0bcfd753e0835f90a0911a333c667d4184aa6d40508996ecf602",
+    "sql\\analysis\\overview.sql": "5cb0460eb5ef2b1885001907f1559e16f01f76c2a8eaff2db239e9706284f31f",
+    "sql\\analysis\\review_association.sql": "9c03054fd22c316e22baea1e106f10138634b9a472cb02ad0e9465301caa5e94",
+    "sql\\analysis\\states.sql": "5dcf14b8b83547192cbc009e1e0aafd1658f4296b17153595c46103fb938e7c8"
+  },
+  "published_at_utc": "2026-10-06T09:11:41.732939+00:00",
+  "scope": {
+    "filters": "none",
+    "minimum_orders_for_charts": 100,
+    "state_chart_limit": 10
+  },
+  "overview": {
+    "all_orders": 99441,
+    "delivered_orders": 96478,
+    "eligible_orders": 96470,
+    "late_orders": 6534,
+    "late_rate": 0.067730900798176,
+    "mean_delivery_days": 12.558217098051976,
+    "median_delivery_days": 10.217476851851853,
+    "p90_delivery_days": 23.09637731481482,
+    "reviewed_orders": 98673,
+    "low_review_rate": 0.14688921994872,
+    "item_value_brl": 13591643.7,
+    "freight_value_brl": 2251909.54,
+    "payment_value_brl": 16008872.12
+  },
+  "output_sha256": {
+    "overview.png": "5a0b67d1c3ecf8f8fdad75ed8483f42655f924e6b40514159dec6d558f75eb2d",
+    "state-ranking.png": "c68ad2308d78c90ca4c6f784a2eeece4c462736f986bf97efe7b4810097ed967",
+    "monthly.csv": "c969c4c10b1305c05481295555279b8a3737dc7e5af4a49f4e4d1a169fca46fc",
+    "states.csv": "08bb2c40f3b830c307c5f516333f262e485e8497665c2529d730076c28e48101",
+    "quality.csv": "bef4b40c4eef7b2a602c8987aae9678a7714386d398f8834486eb47c37576672"
+  }
+}

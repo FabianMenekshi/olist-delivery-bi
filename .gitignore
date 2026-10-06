@@ -1,0 +1,26 @@
+# Local configuration and installed packages
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Input data and legacy outputs; publish only aggregate results
+/data/*
+!/data/raw/
+/data/raw/*
+!/data/raw/.gitkeep
+/reports/
+/docs/
+*.zip
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
