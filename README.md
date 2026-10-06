@@ -7,13 +7,6 @@ In this project, we aim to answer the following questions:
 
 ![Delivery overview](results/overview.png)
 
-| Full-dataset measure | Result |
-|---|---:|
-| Source orders | 99,441 |
-| Eligible deliveries | 96,470 |
-| Late deliveries | 6,534 |
-| Late-delivery rate | 6.8% |
-
 A delivery is late only when its calendar date falls after the estimated date. Cancelled orders and orders without usable delivery dates are excluded from the rate's denominator.
 
 ## What the results show
